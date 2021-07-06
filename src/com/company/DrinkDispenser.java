@@ -8,14 +8,12 @@ import java.util.List;
 public class DrinkDispenser {
     static List<Syrups> syrupList = new ArrayList<>();
     static List<Shots> shotList = new ArrayList<>();
-    static CupHolder small = new CupHolder(20,50,"Small");
-    static CupHolder medium = new CupHolder(30, 50, "Medium");
-    static CupHolder large = new CupHolder(45, 50, "Large");
+
 
     public static void serveDrink(CupHolder size, Syrups syrupType){
         size.dispenseCup();
         syrupType.dispense(size.volumePerCup);
-        System.out.println(size + " " + syrupType);
+        System.out.println(size.size + " " + syrupType.flavorName);
     }
     public static void serveDrink(CupHolder size, Syrups syrupType, Shots shotIndex, int amount){
         size.dispenseCup();
@@ -32,15 +30,18 @@ public class DrinkDispenser {
             }
         }
     }
-    public static void lowShots(double num){
+    public void lowShots(double num){
         for (Shots shot : shotList){
             if(shot.currentLiquidAmt < num){
                 System.out.println(shot);
             }
         }
     }
-    public static void addSyrup(){
+    public void addSyrup(){
 
     }
+//    public String toString(){
+//        return + " " +
+//    }
 
  }
